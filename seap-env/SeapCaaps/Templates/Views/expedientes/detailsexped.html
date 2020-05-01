@@ -1,0 +1,43 @@
+{% include "views/default/header.html" %}
+<center><h1>Información del expediente</h1></center>
+<br>
+<form action method="POST">
+    <div class="container">
+        <div class="row">
+            <table border="1" align="center">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>CURP</th>
+                </tr>
+                <tr>
+                    <td>{{expediente.CURP.Nombre_Pac}}</td>
+                    <td>{{expediente.CURP.Apellidos_Pac}}</td>
+                    <td>{{expediente.CURP.CURP}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Peso (Kg)</th>
+                    <th>Altura (m)</th>
+                </tr>
+                <tr>
+                    <td>{{expediente.CURP.FechaNac}}</td>
+                    <td>{{expediente.CURP.Peso}}</td>
+                    <td>{{expediente.CURP.Talla}}</td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <th>Sexo</th>
+                    <th>Estado Civil</th>
+                </tr>
+                <tr>
+                    <td>{{expediente.CURP.Telefono}}</td>
+                    <td>{{expediente.CURP.Sexo}}</td>
+                    <td>{{expediente.CURP.Id_EdoCivil.Nombre_EdoCivil}}</td>
+                </tr>
+        </table>
+        </div>
+    </div>
+</form>
+<br><br>
+{% include "views/default/footer.html" %}

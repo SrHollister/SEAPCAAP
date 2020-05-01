@@ -1,0 +1,52 @@
+{% include "views/default/header.html" %}
+
+<center><h1>Listado: Pacientes Registrados del Servicio</h1>
+<br>
+<div class="container">
+            <!--<form role="search">-->
+                <input type="search" style="width: 50%;" placeholder="Escriba CURP, Nombre o Apellidos" required>
+                    <button>Buscar Paciente</button>
+            <!--</form>-->
+            <!--<form>-->
+                <a class="nav-link text-dark" href="{% url 'registrarpaciente' %}">Registrar Nuevo Paciente</a>
+            <!--</form>-->
+</div>
+</center>
+<br>
+<div class="container">
+    <div class="row">
+        <br><br><br>
+        <table border="1" align="center">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <!--<th>Fecha de Nacimiento</th>
+                <th>Peso (Kg)</th>
+                <th>Altura (m)</th>-->
+                <th>CURP</th>
+                <th>Teléfono</th>
+                <!--<th>Sexo</th>
+                <th>Estado Civil</th>-->
+            </tr>
+            {% if pacientes_list %}
+            {% for paciente in pacientes_list %}
+            <tr>
+                <td>{{paciente.Nombre_Pac}}</td>
+                <td>{{paciente.Apellidos_Pac}}</td>
+                <!--<td>{{paciente.FechaNac}}</td>
+                <td>{{paciente.Peso}}</td>
+                <td>{{paciente.Talla}}</td>-->
+                <td><a href="detailspac/{{paciente.CURP}}">{{paciente.CURP}}</a></td>
+                <td>{{paciente.Telefono}}</td>
+                <!--<td>{{paciente.Sexo}}</td>
+                <td>{{paciente.Id_EdoCivil}}</td>-->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <p>No hay Pacientes registrados</p>
+    {% endif %}
+</div>
+<br><br>
+{% include "views/default/footer.html" %}

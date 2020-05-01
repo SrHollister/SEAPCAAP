@@ -1,0 +1,38 @@
+{% include "views/default/header.html" %}
+
+<center><h1>Expedientes del Servicio</h1>
+<br>
+<div class="container">
+    <!--<form role="search">-->
+        <input type="search" style="width: 50%;" placeholder="Escriba CURP, Nombre o Apellidos del Paciente" required>
+            <button>Buscar Expediente</button>
+    <!--</form>-->
+    <!--<form>-->
+        <a class="nav-link text-dark" href="{% url 'registrarexpediente' %}">Crear Expediente</a>
+    <!--</form>-->
+</div>
+<br><br>
+</center>
+<div class="container">
+    <div class="row">
+        {% if expedientes_list %}
+        {% for expediente in expedientes_list %}
+            <div class="col-xs-6 col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="detailsexped/{{expediente.Id_Exped}}">Expediente No. #{{expediente.CURP.CURP}}</a>
+                    </div>
+                    <div class="card-body">
+                        <h5>{{expediente.CURP.Nombre_Pac}} {{expediente.CURP.Apellidos_Pac}}</h5>
+                        <p class="card-text">{{expediente.CURP.FechaNac}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No hay Expedientes registrados</p>
+    {% endif %}
+</div>
+<br><br>
+{% include "views/default/footer.html" %}
