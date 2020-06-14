@@ -127,7 +127,7 @@ LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 TIME_ZONE = 'America/Mexico_City'
-TIME_ZONE = 'Etc/GMT-6'
+#TIME_ZONE = 'Etc/GMT-6'
 
 USE_I18N = True
 

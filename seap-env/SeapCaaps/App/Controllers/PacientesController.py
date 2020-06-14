@@ -1,13 +1,26 @@
 from django.shortcuts import render,HttpResponse
 from django.http import HttpResponseRedirect
+from datetime import date
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from App.Models.PacientesModel import pacientes_model, RegistrarPaciente, RegistrarDomicilio
 from ..models import pacientes, domicilios
 from django.contrib import auth
 
 class PacientesController():
     def index(request):
-        pacientes_list = pacientes_model.pacientes_list()
-        context_pac = {'pacientes_list': pacientes_list}
+        filtrarpaciente = None
+        if request.method == "POST":
+            filtrarpaciente = request.POST.get('filtrarpaciente')
+        pacientes_list = pacientes_model.pacientes_list(filtrarpaciente)
+        paginator = Paginator(pacientes_list,15)#El segundo parametro corresponde a cuántos items se desea ver
+        page = request.GET.get('page')
+        try:
+            items = paginator.page(page)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        except EmptyPage:
+                items = paginator.page(paginator.num_pages)
+        context_pac = {'pacientes_list': items}
         return render(request, 'views/pacientes/pacientes.html', context_pac)
 
     def details(request,CURP):

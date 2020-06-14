@@ -55,18 +55,19 @@ class expedientes(models.Model):
     Id_Exped = models.AutoField(primary_key=True)
     CURP = models.ForeignKey(pacientes, blank=True, null=True, on_delete=models.CASCADE)
 
-class usuarios(models.Model):
-    Nombre = models.CharField(max_length=50, null=False)
-    Apellidos = models.CharField(max_length=50, null=False)
-    Id_Area = models.ForeignKey(areastrabajo, blank=True, null=True, on_delete=models.CASCADE)
-    Mail = models.CharField(primary_key=True, max_length=50)
-    Telefono = models.CharField(null=False, max_length=10)
+# class usuarios(models.Model):
+#     Nombre = models.CharField(max_length=50, null=False)
+#     Apellidos = models.CharField(max_length=50, null=False)
+#     Id_Area = models.ForeignKey(areastrabajo, blank=True, null=True, on_delete=models.CASCADE)
+#     Mail = models.CharField(primary_key=True, max_length=50)
+#     Telefono = models.CharField(null=False, max_length=10)
 
 class consultagral(models.Model):
     Id_Exped = models.ForeignKey(expedientes, blank=True, null=True, on_delete=models.CASCADE)
     FolioConsulta = models.AutoField(primary_key=True)
     CURP = models.ForeignKey(pacientes, blank=True, null=True, on_delete=models.CASCADE)
-    Mail = models.ForeignKey(usuarios, blank=True, null=True, on_delete=models.CASCADE)
+#    Mail = models.ForeignKey(usuarios, blank=True, null=True, on_delete=models.CASCADE)
+    UserID = models.CharField(max_length=50, null=True)
     FechaConsulta = models.DateTimeField()
     Id_TipoConsulta = models.ForeignKey(tipoconsultas, blank=True, null=True, on_delete=models.CASCADE)
     Id_Acomp = models.ForeignKey(acompanantes, blank=True, null=True, on_delete=models.CASCADE)

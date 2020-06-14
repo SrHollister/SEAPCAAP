@@ -1,10 +1,8 @@
 {% include "views/default/header.html" %}
-<center>
-    <h1>Información de la Consulta</h1>
-</center>
+    <h1><a class="titulos" href="{% url 'consultas' %}">Consultas</a>><a class="titulos" href="#">Información de la Consulta</a></h1>
+<br>
 <div class="container">
     <div class="row">
-        <br><br><br>
         <table border="1" align="center">
             <tr>
                 <th>Expediente</th>
@@ -21,7 +19,7 @@
                 <td>{{consulta.FechaConsulta}}</td>
                 <td>{{consulta.Id_TipoConsulta.Nombre_TipoConsulta}}</td>
                 <td>{{consulta.CURP.Nombre_Pac}} {{consulta.CURP.Apellidos_Pac}}</td>
-                <td>{{consulta.Mail.Nombre}} {{consulta.Mail.Apellidos}}</a></td>
+                <td>{{consulta.UserID}}</a></td>
                 <td>{{consulta.Id_Acomp.Nombre_Acomp}}</td>
             </tr>
             <tr>

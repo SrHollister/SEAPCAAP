@@ -23,7 +23,7 @@
             <div class="container">
                 <a class="navbar-brand">
                     <!--<img src="{% static 'images/logo_HPcaaps.png' %}" class="imglogo" />-->
-                    <img src="{% static 'images/logo_gobmx.png' %}" class="imglogo" />
+                    <img src="{% static 'images/logo_gobiernomx.png' %}" class="imglogo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,8 @@
                         </li>
                         {% if user.is_superuser %}
                         <li class="dropdown  ng-scope open nav-item" dropdown="">
-                            <a href="#" class="dropdown-toggle text-white nav-link" dropdown-toggle="" data-toggle="dropdown" role="button" aria-expanded="true" aria-haspopup="true">
+                            <a href="#" class="dropdown-toggle text-white nav-link" dropdown-toggle="" 
+                            data-toggle="dropdown" role="button" aria-expanded="true" aria-haspopup="true">
                                 Administración
                                 <span class="caret"></span>
                             </a>
@@ -82,13 +83,20 @@
                             <a class="nav-link text-white" href="{% url 'pacientes' %}">Listado de Pacientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'consultas' %}">Consultas</a>
+                            <a class="nav-link text-white" href="{% url 'mis_consultas' %}">Mis Consultas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Receta Médica</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Reportes</a>
+                        <li class="dropdown  ng-scope open nav-item" dropdown="">
+                            <a href="#" class="dropdown-toggle text-white nav-link" dropdown-toggle="" data-toggle="dropdown"
+                            role="button" aria-expanded="true" aria-haspopup="true">Reportes
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu multi-level">
+                                <li class="dropdown-submenu ng-scope nav-item">
+                                    <a class="nav-link text-white" href="{% url 'consultas' %}">Consultas</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

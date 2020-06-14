@@ -1,17 +1,18 @@
 {% include "views/default/header.html" %}
 {% load i18n static %}
 
-<center><h1>Crear Nuevo Expediente del Paciente del Servicio</h1></center>
+<h1><a class="titulos" href="{% url 'expedientes' %}">Expedientes</a>><a class="titulos" href="#"> Crear nuevo expediente de paciente</a></h1>
 
 <div class="login">
     <div id="container">
+        <br>
         <div id="header" class="bg-info">
             <h1>Seleccione un paciente de la Lista</h1>
         </div>
         <div id="content-main">
             <form action="{{app_path}}" method="POST" id="login-form">
                 {% csrf_token %}
-                <table>{{ form}}</table>
+                <table>{{form}}</table>
                 <p class="errornote text-danger">
                     {{ error }}
                 </p>
@@ -22,4 +23,5 @@
         </div>
     </div>
 </div>
+<br><br>
 {% include "views/default/footer.html" %}

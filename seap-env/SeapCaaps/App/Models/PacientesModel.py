@@ -3,8 +3,11 @@ from ..models import pacientes, edocivil, domicilios
 from django import forms
 
 class pacientes_model():
-    def pacientes_list():
-        pacientesvar = pacientes.objects.order_by("Nombre_Pac")
+    def pacientes_list(filtrarpaciente):
+        if filtrarpaciente == None:
+            pacientesvar = pacientes.objects.order_by("Nombre_Pac")
+        else:
+            pacientesvar = pacientes.objects.filter(CURP__contains=filtrarpaciente)
         return pacientesvar
     
     def getpaciente(CURP):

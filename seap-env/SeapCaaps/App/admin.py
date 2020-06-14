@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import pacientes,areastrabajo,domicilios,acompanantes,metanticonceptivos,edocivil,tipoconsultas,valoraciontanner,expedientes,usuarios,consultagral,antescolares,antfamiliares,antpatheredofam,antrecreathab,antsex,exploracionfisica,personalidad,repevaluacionpsic,repevaluacionmed,repevolucionpsic
+from .models import pacientes,areastrabajo,domicilios,acompanantes,metanticonceptivos,edocivil,tipoconsultas,valoraciontanner,expedientes,consultagral,antescolares,antfamiliares,antpatheredofam,antrecreathab,antsex,exploracionfisica,personalidad,repevaluacionpsic,repevaluacionmed,repevolucionpsic#,usuarios
 
 #Creacion de clases para visualizar los datos de la DB, en lugar de que se visualicen como objetos de Modelo
 class areastrabajoAdmin(admin.ModelAdmin):
@@ -31,8 +31,8 @@ class edocivilAdmin(admin.ModelAdmin):
     list_display = ("Id_EdoCivil","Nombre_EdoCivil")
 
 class consultagralAdmin(admin.ModelAdmin):
-    list_display = ("FolioConsulta","FechaConsulta","CURP_id","Id_Acomp_id","Id_Exped_id","Id_TipoConsulta_id","Mail_id")
-    raw_id_fields = ("CURP_id","Id_Acomp_id","Id_Exped_id","Id_TipoConsulta_id","Mail_id")
+    list_display = ("FolioConsulta","FechaConsulta","CURP_id","Id_Acomp_id","Id_Exped_id","Id_TipoConsulta_id","UserID")
+    raw_id_fields = ("CURP_id","Id_Acomp_id","Id_Exped_id","Id_TipoConsulta_id")
 
 class antescolaresAdmin(admin.ModelAdmin):
     list_display = ("id","FolioConsulta_id","Grado","Promedio","RepitioGrado","DesercionEsc","Causa_DesercionEsc","ConflictProf","Causa_ConflictProf","RelacionComp","TrabajoAnt","Obs_TrabajoAnt","TrabajoActual")
@@ -98,7 +98,7 @@ class valoraciontannerAdmin(admin.ModelAdmin):
 # Register your models here.
 #Registro de los modelos migrados para crear las Vistas en el Administrador del Sitio
 admin.site.register(areastrabajo,areastrabajoAdmin)
-admin.site.register(usuarios,usuariosAdmin)
+#admin.site.register(usuarios,usuariosAdmin)
 
 admin.site.register(consultagral,consultagralAdmin)
 admin.site.register(acompanantes,acompanantesAdmin)
